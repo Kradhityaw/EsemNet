@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72D06663-416A-4A0E-B19E-A4E5F4A10A13}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>D1_KEVIND_RADHITYA_WICAKSONO</RootNamespace>
+    <AssemblyName>D1_KEVIND_RADHITYA_WICAKSONO</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetailTransaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetailTransaksi.Designer.cs">
+      <DependentUpon>FormDetailTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMember.Designer.cs">
+      <DependentUpon>FormMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahTransaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahTransaksi.Designer.cs">
+      <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jeni.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KodePotonganHarga.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Komputer.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Member.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paket.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pengguna.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime.cs" />
+    <Compile Include="Transaksi.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UCDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCDashboard.Designer.cs">
+      <DependentUpon>UCDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCkomputer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCkomputer.Designer.cs">
+      <DependentUpon>UCkomputer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCMasterComputer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCMasterComputer.Designer.cs">
+      <DependentUpon>UCMasterComputer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCMasterMember.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCMasterMember.Designer.cs">
+      <DependentUpon>UCMasterMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCMasterPaket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCMasterPaket.Designer.cs">
+      <DependentUpon>UCMasterPaket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCMasterPotongan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCMasterPotongan.Designer.cs">
+      <DependentUpon>UCMasterPotongan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCTransaksi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCTransaksi.Designer.cs">
+      <DependentUpon>UCTransaksi.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetailTransaksi.resx">
+      <DependentUpon>FormDetailTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMember.resx">
+      <DependentUpon>FormMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahTransaksi.resx">
+      <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UCDashboard.resx">
+      <DependentUpon>UCDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCkomputer.resx">
+      <DependentUpon>UCkomputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCMasterComputer.resx">
+      <DependentUpon>UCMasterComputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCMasterMember.resx">
+      <DependentUpon>UCMasterMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCMasterPaket.resx">
+      <DependentUpon>UCMasterPaket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCMasterPotongan.resx">
+      <DependentUpon>UCMasterPotongan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCTransaksi.resx">
+      <DependentUpon>UCTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database.edmx.diagram">
+      <DependentUpon>Database.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\D1_KEVIND_RADHITYA_WICAKSONO.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\D1_KEVIND_RADHITYA_WICAKSONO.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\EsemNetEntities.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\FormDashboard.datasource" />
+    <None Include="Properties\DataSources\Jeni.datasource" />
+    <None Include="Properties\DataSources\KodePotonganHarga.datasource" />
+    <None Include="Properties\DataSources\Komputer.datasource" />
+    <None Include="Properties\DataSources\Member.datasource" />
+    <None Include="Properties\DataSources\Paket.datasource" />
+    <None Include="Properties\DataSources\Pengguna.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Transaksi.datasource" />
+    <None Include="Properties\DataSources\UCDashboard.datasource" />
+    <None Include="Properties\DataSources\UCkomputer.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hacker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\online-test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Content>
+    <Content Include="Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
