@@ -78,36 +78,36 @@
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(122)))), ((int)(((byte)(54)))));
             this.label15.Location = new System.Drawing.Point(269, 325);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(110, 32);
+            this.label15.Size = new System.Drawing.Size(94, 32);
             this.label15.TabIndex = 15;
-            this.label15.Text = "Subtotal";
+            this.label15.Text = "Rp0,00";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(269, 248);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 25);
+            this.label14.Size = new System.Drawing.Size(74, 25);
             this.label14.TabIndex = 14;
-            this.label14.Text = "Subtotal";
+            this.label14.Text = "Rp0,00";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(269, 201);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 25);
+            this.label13.Size = new System.Drawing.Size(74, 25);
             this.label13.TabIndex = 13;
-            this.label13.Text = "Subtotal";
+            this.label13.Text = "Rp0,00";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(269, 154);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 25);
+            this.label12.Size = new System.Drawing.Size(74, 25);
             this.label12.TabIndex = 12;
-            this.label12.Text = "Subtotal";
+            this.label12.Text = "Rp0,00";
             // 
             // label11
             // 
@@ -180,13 +180,16 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox6
             // 
+            this.textBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox6.Location = new System.Drawing.Point(30, 96);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(410, 29);
             this.textBox6.TabIndex = 15;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label17
             // 
