@@ -93,7 +93,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "UCkomputer";
-            this.Size = new System.Drawing.Size(699, 254);
+            this.Size = new System.Drawing.Size(684, 254);
             this.Load += new System.EventHandler(this.UCkomputer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

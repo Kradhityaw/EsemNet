@@ -398,7 +398,6 @@
             // comboBox2
             // 
             this.comboBox2.DataSource = this.bindingSource2;
-            this.comboBox2.DisplayMember = "Merek";
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
@@ -406,7 +405,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(299, 32);
             this.comboBox2.TabIndex = 13;
-            this.comboBox2.ValueMember = "ID";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // bindingSource2
             // 

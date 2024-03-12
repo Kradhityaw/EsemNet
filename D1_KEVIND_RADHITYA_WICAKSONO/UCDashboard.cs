@@ -30,7 +30,8 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
 
             var data = db.Penggunas.FirstOrDefault(f => f.ID == Runtime.IDpengguna);
             label1.Text = $"Selamat Datang {data.NamaPengguna}";
-            label3.Text = $"{db.Transaksis.Where(f => f.Tanggal > DateTime.Now).Count()} Komputer Terpakai";
+            var date = DateTime.Now.Date;
+            label3.Text = $"{db.Transaksis.Where(f => f.Tanggal >= date && f.Tanggal <= date).Count()} Komputer Terpakai";
 
             foreach (var item in db.Transaksis.ToList())
             {
@@ -45,6 +46,11 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FormTambahTransaksi().ShowDialog();
         }
     }
 }

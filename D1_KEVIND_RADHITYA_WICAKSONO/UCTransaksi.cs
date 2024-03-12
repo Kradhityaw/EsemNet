@@ -57,12 +57,27 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
             {
                 Runtime.IDtransaksi = transaksi.ID;
                 new FormDetailTransaksi().ShowDialog();
+                //MessageBox.Show(Runtime.IDtransaksi.ToString());
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             new FormTambahTransaksi().ShowDialog();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            transaksiBindingSource.DataSource = db.Transaksis.Where(f => f.Tanggal >= dateTimePicker1.Value.Date && f.Tanggal <= dateTimePicker1.Value.Date).ToList();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (transaksiDataGridView.SelectedRows[0].DataBoundItem is Transaksi transaksi)
+            {
+                Runtime.IDtransaksi = transaksi.ID;
+                new FormTambahDurasi().ShowDialog();
+            }
         }
     }
 }

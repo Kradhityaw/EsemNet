@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
     {
         EsemNetEntities db = new EsemNetEntities();
         double total;
+        int SelectedID = 0;
         public FormTambahTransaksi()
         {
             InitializeComponent();
@@ -72,11 +74,29 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
 
                 if (paket.IDJenis == null)
                 {
-                    bindingSource2.DataSource = db.Komputers.ToList();
+                    var fromDb = db.Komputers.ToList();
+                    var formatted = fromDb.Select(f => new
+                    {
+                        ValueMem = f.ID,
+                        DisplayMem = $"Komputer {f.Nomor}"
+                    }).ToList();
+
+                    bindingSource2.DataSource = formatted;
+                    comboBox2.DisplayMember = "DisplayMem";
+                    comboBox2.ValueMember = "ValueMem";
                 }
                 else
                 {
-                    bindingSource2.DataSource = db.Komputers.Where(f => f.IDJenis == paket.IDJenis).ToList();
+                    var fromDb = db.Komputers.Where(f => f.IDJenis == paket.IDJenis).ToList();
+                    var formatted = fromDb.Select(f => new
+                    {
+                        ValueMem = f.ID,
+                        DisplayMem = $"Komputer {f.Nomor}"
+                    }).ToList();
+
+                    bindingSource2.DataSource = formatted;
+                    comboBox2.DisplayMember = "DisplayMem";
+                    comboBox2.ValueMember = "ValueMem";
                 }
             }
         }
@@ -135,6 +155,11 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
             {
                 label13.Text = 0.ToString("C2", new CultureInfo("id-ID"));
             }
+
+            var oke = label13.Text.Substring(2);
+            var rumus = Convert.ToDouble(sample) - Convert.ToDouble(oke);
+            label15.Text = rumus.ToString("C2", new CultureInfo("id-ID"));
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -144,6 +169,7 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
             textBox3.Text = data.Nama;
             textBox4.Text = data.Telepon;
             textBox5.Text = data.Alamat;
+            SelectedID = data.ID;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -165,11 +191,15 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
             {
                 label13.Text = 0.ToString("C2", new CultureInfo("id-ID"));
             }
+
+            var oke = label13.Text.Substring(2);
+            var rumus = Convert.ToDouble(sample) - Convert.ToDouble(oke);
+            label15.Text = rumus.ToString("C2", new CultureInfo("id-ID"));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text))
+            if (string.IsNullOrEmpty(textBox2.Text))
             {
                 MessageBox.Show("Semua data wajib Diisi!");
                 return;
@@ -177,22 +207,89 @@ namespace D1_KEVIND_RADHITYA_WICAKSONO
 
             var data = db.KodePotonganHargas.FirstOrDefault(f => f.Kode == textBox6.Text);
 
-            Transaksi transaksi = new Transaksi()
+            if (!string.IsNullOrEmpty(textBox3.Text) || !string.IsNullOrEmpty(textBox4.Text) || !string.IsNullOrEmpty(textBox5.Text))
             {
-                DibuatOleh = Runtime.IDpengguna,
-                Durasi = Convert.ToInt32(textBox2.Text),
-                IDKomputer = (int)comboBox2.SelectedValue,
-                IDMember = Runtime.IDmember,
-                IDPaket = (int)comboBox1.SelectedValue,
-                IDPotonganHarga = data?.ID,
-                Tanggal = DateTime.Now,
-                Waktu = DateTime.Now.TimeOfDay,
+                Member member = new Member()
+                {
+                    Nama = textBox3.Text,
+                    Telepon = textBox4.Text,
+                    Alamat = textBox5.Text,
+                    MasihAktif = true
+                };
+
+                db.Members.Add(member);
+                db.SaveChanges();
+
+                SelectedID = member.ID;
+            }
+
+            int IsID = SelectedID;
+
+            if (SelectedID == 0)
+            {
+                Transaksi transaksi = new Transaksi()
+                {
+                    DibuatOleh = Runtime.IDpengguna,
+                    Durasi = Convert.ToInt32(textBox2.Text),
+                    IDKomputer = (int)comboBox2.SelectedValue,
+                    IDMember = null,
+                    IDPaket = (int)comboBox1.SelectedValue,
+                    IDPotonganHarga = data?.ID,
+                    Tanggal = DateTime.Now,
+                    Waktu = DateTime.Now.TimeOfDay,
+                };
+
+                db.Transaksis.Add(transaksi);
+                db.SaveChanges();
+
+                this.Close();
+            }
+            else
+            {
+                try
+                {
+                    Transaksi transaksi = new Transaksi()
+                    {
+                        DibuatOleh = Runtime.IDpengguna,
+                        Durasi = Convert.ToInt32(textBox2.Text),
+                        IDKomputer = (int)comboBox2.SelectedValue,
+                        IDMember = Runtime.IDmember,
+                        IDPaket = (int)comboBox1.SelectedValue,
+                        IDPotonganHarga = data?.ID,
+                        Tanggal = DateTime.Now,
+                        Waktu = DateTime.Now.TimeOfDay,
+                    };
+
+                    db.Transaksis.Add(transaksi);
+                    db.SaveChanges();
+
+                    this.Close();
+                }
+                catch
+                {
+                    Transaksi transaksi = new Transaksi()
+                    {
+                        DibuatOleh = Runtime.IDpengguna,
+                        Durasi = Convert.ToInt32(textBox2.Text),
+                        IDKomputer = (int)comboBox2.SelectedValue,
+                        IDMember = IsID,
+                        IDPaket = (int)comboBox1.SelectedValue,
+                        IDPotonganHarga = data?.ID,
+                        Tanggal = DateTime.Now,
+                        Waktu = DateTime.Now.TimeOfDay,
+                    };
+
+                    db.Transaksis.AddOrUpdate(transaksi);
+                    db.SaveChanges();
+
+                    this.Close();
+                }
             };
+        }
 
-            db.Transaksis.Add(transaksi);
-            db.SaveChanges();
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-            this.Close();
         }
     }
 }

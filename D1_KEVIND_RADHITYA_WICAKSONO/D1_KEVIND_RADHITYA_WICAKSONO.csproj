@@ -94,6 +94,12 @@
     <Compile Include="FormMember.Designer.cs">
       <DependentUpon>FormMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahDurasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahDurasi.Designer.cs">
+      <DependentUpon>FormTambahDurasi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMember.resx">
       <DependentUpon>FormMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahDurasi.resx">
+      <DependentUpon>FormTambahDurasi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
